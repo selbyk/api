@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root 'users#index'
   post '/validate' => 'validations#create'
 
-  resources :users, except: [:edit, :new]
+  resources :users, shallow: true, except: [:edit, :new] do
+    resources :posts, only: [:index, :create, ]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
