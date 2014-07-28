@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_filter :find_user
 
   def index
-    @posts = @user.posts
+    @posts = @user ? @user.posts : Post.all
   end
 
   def create
@@ -18,6 +18,6 @@ class PostsController < ApplicationController
   private
 
   def find_user
-    @user = User.find_by_username(params[:user_id]) || not_found
+    @user = User.find_by_username(params[:user_id])
   end
 end

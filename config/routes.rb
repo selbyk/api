@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'users#index'
   post '/validate' => 'validations#create'
+  get '/posts' => 'posts#index'
 
   resources :users, shallow: true, except: [:edit, :new] do
     resources :posts, only: [:index, :create, ]
