@@ -30,6 +30,8 @@ POST /authenticate
 Give a valid username and password and receive that user's API key.
 ```
 
+#### User Authentication
+
 - In leu of user sessions, all users are given an **API Key** on creation which they can then use to access resources.
 - If a user wants to, for instance, create a new post, it must supply it's API key in the request in order for it to be processed.
 - Users can obtain their API key by `POST`ing to `/authenticate` with their username and password.
