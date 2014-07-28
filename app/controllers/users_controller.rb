@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    head :unauthorized unless @user == @api_user
     if @user.update(user_params)
       render :show
     else
@@ -27,6 +28,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    head :unauthorized unless @user == @api_user
     @user.destroy
     head :no_content
   end

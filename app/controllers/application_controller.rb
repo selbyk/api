@@ -4,7 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
 
   def require_valid_api_key
-    head :unauthorized unless params[:key] && User.find_by_api_key(params[:key])
+    if params[:key]
+      @api_user = User.find_by_api_key(params[:key])
+    end
+    head :unauthorized unless @api_user
   end
 
   def not_found
