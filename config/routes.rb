@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'users#index'
+  root 'posts#index'
   post '/validate' => 'validations#create'
   get '/posts' => 'posts#index'
 

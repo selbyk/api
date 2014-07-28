@@ -20,4 +20,8 @@ class PostsController < ApplicationController
   def find_user
     @user = User.find_by_username(params[:user_id])
   end
+
+  def post_params
+    params.permit(:content)
+  end
 end
