@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   post '/authenticate' => 'authentication#create'
   get '/posts'         => 'posts#index'
 
-  resources :users, shallow: true, except: [:edit, :new] do
+  resources :users, except: [:edit, :new] do
     resources :posts, only: [:index, :create]
+    resources :relationships, only: [:create, :destroy]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

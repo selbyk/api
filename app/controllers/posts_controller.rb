@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :require_valid_api_key, only: [:create]
+  before_filter :require_valid_api_key, only: [:create, :destroy]
 
   def index
     @user = User.find_by_username(params[:user_id])
@@ -16,6 +16,14 @@ class PostsController < ApplicationController
     else
       respond_with_errors(@post)
     end
+  end
+
+  def destroy
+    @user = User.find_by_username(params[:user_id]) || not_found
+    head :unauthorized unless @user == @api_user
+
+    @post.destroy
+    head :no_content
   end
 
   private
