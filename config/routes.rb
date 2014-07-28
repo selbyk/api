@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'users#index'
+  post '/validate' => 'validations#create'
 
   resources :users, except: [:edit, :new]
 

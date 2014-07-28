@@ -10,28 +10,23 @@ class UsersController < ApplicationController
   end
 
   def create
-    params.require(:user).permit(:username, :email, :password)
-    @user = User.new(params[:user])
-    
+    @user = User.new(user_params)
     if @user.save
-      render :show
+      render :show, status: :created
     else
-      head :unprocessable_entity
+      respond_with_errors(@user)
     end
   end
 
   def update
-    params.require(:user).permit(:username, :email, :password)
-
-    if @user.update(params[:user])
+    if @user.update(user_params)
       render :show
     else
-      head :unprocessable_entity
+      respond_with_errors(@user)
     end
   end
 
   def destroy
-    @user = User.find_by_username(params[:username]) || not_found
     @user.destroy
     head :no_content
   end
@@ -39,6 +34,10 @@ class UsersController < ApplicationController
   private
 
   def find_user
-    @user = User.find_by_username(params[:username]) || not_found
+    @user = User.find_by_username(params[:id]) || not_found
+  end
+
+  def user_params
+    params.permit(:username, :email, :password)
   end
 end
