@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
   root 'posts#index'
-  post '/validate' => 'validations#create'
-  get '/posts' => 'posts#index'
+  post '/authenticate' => 'authentication#create'
+  get '/posts'         => 'posts#index'
 
   resources :users, shallow: true, except: [:edit, :new] do
-    resources :posts, only: [:index, :create, ]
+    resources :posts, only: [:index, :create]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
