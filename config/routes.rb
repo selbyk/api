@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'posts#index'
+  root 'docs#index'
   post '/authenticate' => 'authentication#create'
   get '/posts'         => 'posts#index'
 
