@@ -22,6 +22,7 @@ class PostsController < ApplicationController
     @user = User.find_by_username(params[:user_id]) || not_found
     head :unauthorized unless @user == @api_user
 
+    # TODO: what is @post?
     @post.destroy
     head :no_content
   end
