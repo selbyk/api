@@ -1,1 +1,1 @@
-json.partial! @users
+json.partial! partial: 'user', collection: @users, as: :user

@@ -1,1 +1,1 @@
-json.partial! @posts
+json.partial! partial: 'post', collection: @posts, as: :post
