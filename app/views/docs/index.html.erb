@@ -1,21 +1,38 @@
 <div style="width: 50%; margin: 50px auto">
   <pre>
   <strong>GET /posts</strong>
-  All of the posts created by all users.
+    All of the posts created by all users.
+    <strong>Parameters</strong> (Optional):
+      - page:Integer
 
   <strong>GET /users</strong>
-  All of the users in the database.
-
-  <strong>POST /users</strong>
-  Create a new user.
+    All of the users in the database.
+    <strong>Parameters</strong> (Optional):
+      - page:Integer
 
   <strong>GET /users/:username/posts</strong>
-  The posts created by a specific user.
+    The posts created by a specific user.
+    <strong>Parameters</strong> (Optional):
+      - page:Integer
+
+  <strong>POST /users</strong>
+    Create a new user.
+    <strong>Expects:</strong>
+      - username:String
+      - email:String
+      - password:String
 
   <strong>POST /users/:username/posts</strong>
-  (Requires API Key) Create a new post for a specific user.
+    Create a new post for a specific user.
+    <strong>Expects:</strong>
+      - content:String
+      - key:String
 
   <strong>POST /authenticate</strong>
-  Give a valid username and password and receive that user's API key.
+    Give a valid username and password and receive that user's API key.
+    <strong>Expects:</strong>
+      - username:String
+      - password:String
+
   </pre>
 </div>
