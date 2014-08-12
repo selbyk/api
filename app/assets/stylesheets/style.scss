@@ -1,8 +1,25 @@
 @import url("http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600");
 
+h1 {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 110%;
+  font-weight: 100;
+  margin: 50px 0 0 100px;
+}
+
 .documentation {
   font-size: 90%;
   font-family: 'Source Code Pro', monospace;
   width: 50%;
-  margin: 50px auto;
+  margin: 50px 0 0 100px;
+}
+
+footer {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 90%;
+  font-weight: 100;
+  margin: 50px 100px 0 0;
+  text-align: right;
+
+  a { color: black; }
 }
