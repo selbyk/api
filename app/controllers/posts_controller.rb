@@ -5,6 +5,8 @@ class PostsController < ApplicationController
     page = params[:page] || 1
 
     @user = User.find_by_username(params[:user_id])
+    not_found if params[:user_id] && @user.nil?
+
     @posts = @user ? @user.posts.page(page) : Post.page(page)
   end
 
@@ -24,7 +26,7 @@ class PostsController < ApplicationController
     @user = User.find_by_username(params[:user_id]) || not_found
     head :unauthorized unless @user == @api_user
 
-    # TODO: what is @post?
+    @post = Post.find(params[:id])
     @post.destroy
     head :no_content
   end
