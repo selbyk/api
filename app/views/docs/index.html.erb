@@ -7,15 +7,18 @@ The simple network.</h1>
   <strong>Parameters</strong> (Optional):
     - page:Integer
 
+
 <strong>/users</strong>
   All of the users in the database.
   <strong>Parameters</strong> (Optional):
     - page:Integer
 
+
 <strong>/users/:username/posts</strong>
   The posts created by a specific user.
   <strong>Parameters</strong> (Optional):
     - page:Integer
+
 
 <strong>POST /users</strong>
   Create a new user.
@@ -24,17 +27,20 @@ The simple network.</h1>
     - email:String
     - password:String
 
+
 <strong>POST /users/:username/posts</strong>
   Create a new post for a specific user.
   <strong>Expects:</strong>
     - content:String
     - key:String
 
+
 <strong>POST /users/:username/relationships</strong>
   Creates a one-way relationship between two users.
   <strong>Expects:</strong>
     - username:String
     - key:String
+
 
 <strong>POST /authenticate</strong>
   Give a valid username and password and receive that user's API key.
