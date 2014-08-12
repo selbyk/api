@@ -30,6 +30,8 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'better_errors'
 gem 'binding_of_caller'
 
+gem 'rack-cors', :require => 'rack/cors'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -38,4 +40,3 @@ gem 'binding_of_caller'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
