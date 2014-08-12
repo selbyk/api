@@ -2,8 +2,10 @@ class PostsController < ApplicationController
   before_filter :require_valid_api_key, only: [:create, :destroy]
 
   def index
+    page = params[:page] || 1
+
     @user = User.find_by_username(params[:user_id])
-    @posts = @user ? @user.posts : Post.all
+    @posts = @user ? @user.posts.page(page) : Post.page(page)
   end
 
   def create
