@@ -1,4 +1,4 @@
-### Koan
+### Division
 
 This is a very simple API for testing clients. It has two resources that you can manipulate: **Users** and **Posts**.
 
