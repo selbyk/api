@@ -4,30 +4,25 @@
 </div>
 
 <pre class="documentation">
-<h1>Preliminary API Documentation</h1>
-
-<h2><small>Resource:</small> User</h2>
+<h2>User:</h2>
     <strong>username</strong>: Required String
     <strong>email</strong>:    Required String
     <strong>password</strong>: Required String
 
-
 Supported REST endpoints: <strong>GET</strong>, <strong>POST</strong>, <strong>PATCH/PUT</strong>, <strong>DELETE</strong>
 Identifying Attribute: <strong>username</strong>
 
-<hr>
-<h2><small>Resource:</small> Post</h2>
+
+<h2>Post:</h2>
     <strong>id</strong>:      Supplied Integer
     <strong>content</strong>: Required Text
     <strong>user_id</strong>: Required Integer
 
-
 Supported REST endpoints: <strong>GET</strong>, <strong>POST</strong>, <strong>PATCH/PUT</strong>, <strong>DELETE</strong>
 Identifying Attribute: <strong>id</strong>
-
 <em>
-  Posts can only be created by POSTing under a user's resource.
-  Furthermore, you must provide that user's API key as proof of authenticity.
+<strong>NOTE</strong>: Posts can only be created by POSTing under a user's resource.
+      Furthermore, you must provide that user's API key as proof of authenticity.
 </em>
 <strong>Example</strong>:
 
@@ -37,13 +32,13 @@ Identifying Attribute: <strong>id</strong>
     <strong>key</strong>: "testuser's api key"
   }
 
-<hr>
+
 <h2>Other Routes</h2>
 <strong>POST /authenticate</strong>
   Give a valid username and password and receive that user's API key.
   <strong>Expects:</strong>
-    - username:String
-    - password:String
+    - <strong>username</strong>:String
+    - <strong>password</strong>:String
   <strong>Returns:</strong>
     - key:String
 </pre>
