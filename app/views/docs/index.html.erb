@@ -1,49 +1,51 @@
-<h1 style="color: #E42">Divison<br>The API-based social network.</h1>
+<div style="text-align: center">
+  <%= image_tag 'logo.png' %>
+  <h1>The API-based social network.</h1>
+</div>
 
 <pre class="documentation">
-<strong>/posts</strong>
-  All of the posts created by all users.
-  <strong>Parameters</strong> (Optional):
-    - page:Integer
+<h1>Preliminary API Documentation</h1>
+
+<h2><small>Resource:</small> User</h2>
+    <strong>username</strong>: Required String
+    <strong>email</strong>:    Required String
+    <strong>password</strong>: Required String
 
 
-<strong>/users</strong>
-  All of the users in the database.
-  <strong>Parameters</strong> (Optional):
-    - page:Integer
+Supported REST endpoints: <strong>GET</strong>, <strong>POST</strong>, <strong>PATCH/PUT</strong>, <strong>DELETE</strong>
+Identifying Attribute: <strong>username</strong>
+
+<hr>
+
+<h2><small>Resource:</small> Post</h2>
+    <strong>id</strong>:      Supplied Integer
+    <strong>content</strong>: Required Text
+    <strong>user_id</strong>: Required Integer
 
 
-<strong>/users/:username/posts</strong>
-  The posts created by a specific user.
-  <strong>Parameters</strong> (Optional):
-    - page:Integer
+Supported REST endpoints: <strong>GET</strong>, <strong>POST</strong>, <strong>PATCH/PUT</strong>, <strong>DELETE</strong>
+Identifying Attribute: <strong>id</strong>
 
+<em>
+  Posts can only be created by POSTing under a user's resource.
+  Furthermore, you must provide that user's API key as proof of authenticity.
+</em>
+<strong>Example</strong>:
 
-<strong>POST /users</strong>
-  Create a new user.
-  <strong>Expects:</strong>
-    - username:String
-    - email:String
-    - password:String
+<strong>POST</strong> /users/testuser/posts
+  {
+    <strong>content</strong>: "Testing",
+    <strong>key</strong>: "testuser's api key"
+  }
 
+<hr>
 
-<strong>POST /users/:username/posts</strong>
-  Create a new post for a specific user.
-  <strong>Expects:</strong>
-    - content:String
-    - key:String
-
-
-<strong>POST /users/:username/relationships</strong>
-  Creates a one-way relationship between two users.
-  <strong>Expects:</strong>
-    - username:String
-    - key:String
-
-
+<h2>Other Routes</h2>
 <strong>POST /authenticate</strong>
   Give a valid username and password and receive that user's API key.
   <strong>Expects:</strong>
     - username:String
     - password:String
+  <strong>Returns:</strong>
+    - key:String
 </pre>
