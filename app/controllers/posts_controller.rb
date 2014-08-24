@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     not_found if params[:user_id] && @user.nil?
 
     @posts = @user ? @user.posts.page(page) : Post.page(page)
+    @posts = @posts.order('created_at DESC')
   end
 
   def create
